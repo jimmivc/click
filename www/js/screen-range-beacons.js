@@ -83,11 +83,16 @@
 			// get beacon media reproducir
 			console.log('tome su audio');
 
-			$('#beacon-media').prop('src','images/audio/CakeByTheOcean.mp3')
-			
+			//***** $('#beacon-media').prop('src','images/audio/CakeByTheOcean.mp3')
+			// $.get( "https://beakokonsapi.herokuapp.com/api/addCount/"+beacon.macAddress, function( data ) {
+			// 	$('#beacon-media').append('<p>'+data+'</p>');
+			// });			
+
 			// localStorage.setItem('nowPlaying',beacon.macAddress);
 
 			// console.log(JSON.stringify($('#beacon-media')));
+
+			// aumentar el contador en el api aqui
 
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
 			beacons.push(beacon.macAddress);
@@ -118,10 +123,6 @@
 		}else{
 			return false;
 		}
-	}
-
-	function findBeacon(uuid,mayor,minor){
-		var beacons = JSON.parse(localStorage.getItem('beacons'));
 	}
 
 	app.stopRangingBeacons = function()
