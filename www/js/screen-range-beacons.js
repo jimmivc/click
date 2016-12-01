@@ -6,6 +6,7 @@
 	// });
 	// 'F1:A5:A6:CF:98:BC'
 	beaconsIdsList = ['E1:0D:88:DA:70:BA'];
+	beaconDistance = 2;
 
 	app.startRangingBeacons = function()
 	{
@@ -52,7 +53,7 @@
 			{
 				// htm += '</td></tr><tr><td>Distance</td><td>'
 					// + app.formatDistance(beacon.distance);					
-				if(isClose(beacon.distance,2)){
+				if(isClose(beacon.distance,beaconDistance)){
 					callMedia(beacon);
 
 				}
