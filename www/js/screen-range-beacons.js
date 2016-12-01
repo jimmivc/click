@@ -87,7 +87,7 @@
 			});
 
 			//api insert into clicker_events
-		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:macAddress})
+		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:beacon.macAddress})
 			  .done(function( data ) {
 			    $('#beacon-media').append('<p>registrando datos en la bd</p>');
 			});
