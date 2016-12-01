@@ -112,9 +112,9 @@
 		 //        }
 		 //    });
 
-		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:"null"})
+		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:beacon.macAddress})
 			  .done(function( data ) {
-			    $('#beacon-media').append('<p>went better than expected</p>');
+			    $('#beacon-media').append('<p>datos registrados</p>');
 			});
 
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
