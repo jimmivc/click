@@ -84,15 +84,31 @@
 			console.log('tome su audio');
 
 			//***** $('#beacon-media').prop('src','images/audio/CakeByTheOcean.mp3')
-			// $.get( "https://beakokonsapi.herokuapp.com/api/addCount/"+beacon.macAddress, function( data ) {
-			// 	$('#beacon-media').append('<p>'+data+'</p>');
-			// });			
+			//test
+			$.get( "http://koko-test.com/click/back-end/index.php/app/test", function( data ) {
+				$('#beacon-media').append('<p>'+data+'</p>');
+			});			
 
 			// localStorage.setItem('nowPlaying',beacon.macAddress);
 
 			// console.log(JSON.stringify($('#beacon-media')));
 
 			// aumentar el contador en el api aqui
+
+			// $.ajax
+		 //    ({
+		 //        type: "POST",
+		 //        //the url where you want to sent the userName and password to
+		 //        url: 'username:password@link to the server/update',
+		 //        dataType: 'json',
+		 //        async: false,
+		 //        //json object to sent to the authentication url
+		 //        data: '{"userName": "' + userName + '", "password" : "' + password + '"}',
+		 //        success: function () {
+
+		 //        alert("Thanks!"); 
+		 //        }
+		 //    })
 
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
 			beacons.push(beacon.macAddress);
