@@ -132,8 +132,6 @@
 
 		beaconInList = false;
 
-		$('#beacon-media').append('<p>nativemac'+macAddress+'mymac'+beaconsIdsList[0]+'</p>');
-
 		//find in list...
 		for (var i = 0; i < beaconsIdsList.length; i++) {
 			if(beaconsIdsList[i]==macAddress){
@@ -141,8 +139,6 @@
 			}
 		}
 
-		$('#beacon-media').append('<p>'+beaconInList'</p>');
-		
 		//avoid calling method more than one time
 		if (beaconInList) {
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
