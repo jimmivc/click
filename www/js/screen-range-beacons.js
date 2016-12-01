@@ -4,10 +4,8 @@
 	// app.controller('buscarBeaconController',function(){
 	// 	console.log('nothingController');
 	// });
-	// 'F1:A5:A6:CF:98:BC,E1:0D:88:DA:70:BA'
-	beaconsIdsList = ['F1:A5:A6:CF:98:BC'];
-	//meters
-	beaconDistance = 2;
+	// 'F1:A5:A6:CF:98:BC'
+	beaconsIdsList = ['E1:0D:88:DA:70:BA'];
 
 	app.startRangingBeacons = function()
 	{
@@ -54,7 +52,7 @@
 			{
 				// htm += '</td></tr><tr><td>Distance</td><td>'
 					// + app.formatDistance(beacon.distance);					
-				if(isClose(beacon.distance,beaconDistance)){
+				if(isClose(beacon.distance,2)){
 					callMedia(beacon);
 
 				}
@@ -78,18 +76,44 @@
 	};
 
 	function callMedia(beacon){
+		// console.log($('#beacon-media').prop('ended'));
+		// console.log($('#beacon-media').prop('duration'));
+		// console.log($('#beacon-media').prop('src'));
 
 		if(!findByMacAddress(beacon.macAddress)){
 
-			//api connection test
-			$.get( "http://koko-test.com/click/back-end/index.php/app/test", function( data ) {
-				$('#beacon-media').append('<p>'+probando conneccion a la base de datos+'</p>');
-			});
+			// get beacon media reproducir
+			console.log('tome su audio');
 
-			//api insert into clicker_events
-		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:beacon.macAddress})
+			//***** $('#beacon-media').prop('src','images/audio/CakeByTheOcean.mp3')
+			//test
+			$.get( "http://koko-test.com/click/back-end/index.php/app/test", function( data ) {
+				$('#beacon-media').append('<p>'+data+'</p>');
+			});			
+
+			// localStorage.setItem('nowPlaying',beacon.macAddress);
+
+			// console.log(JSON.stringify($('#beacon-media')));
+
+			// aumentar el contador en el api aqui
+
+			// $.ajax
+		 //    ({
+		 //        type: "POST",
+		 //        //the url where you want to sent the userName and password to
+		 //        url: 'http://koko-test.com/click/back-end/index.php/app/saveEvent',
+		 //        dataType: 'application/json',
+		 //        async: false,
+		 //        //json object to sent to the authentication url
+		 //        data: JSON.stringify({id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:"null"}),
+		 //        success: function () {
+		 //        	$('#beacon-media').append('<p>went better than expected</p>');
+		 //        }
+		 //    });
+
+		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:"null"})
 			  .done(function( data ) {
-			    $('#beacon-media').append('<p>registrando datos en la bd</p>');
+			    $('#beacon-media').append('<p>went better than expected</p>');
 			});
 
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
