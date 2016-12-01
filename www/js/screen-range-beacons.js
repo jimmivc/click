@@ -5,6 +5,8 @@
 	// 	console.log('nothingController');
 	// });
 
+	beaconsIdsList = ['E1:0D:88:DA:70:BA','F1:A5:A6:CF:98:BC'];
+
 	app.startRangingBeacons = function()
 	{
 		function onRange(beaconInfo)
@@ -124,16 +126,29 @@
 
 	function findByMacAddress(macAddress){
 		//console.log(macAddress);
-		var beacons = JSON.parse(localStorage.getItem('beacons'));
 		// console.log(beacons);
 		// beacons.push('adios');
 		// localStorage.setItem('beacons',JSON.stringify(beacons));
-		for (var i = 0; i < beacons.length; i++) {
-			if(beacons[i]==macAddress){
-				return true;
+
+		beaconInList = false;
+
+		//find in list...
+		for (var i = 0; i < beaconsIdsList.length; i++) {
+			if(beaconsIdsList[i]==macAddress){
+				beaconInList = true;
 			}
 		}
 
+		//avoid calling method more than one time
+		if (beaconInList) {
+			var beacons = JSON.parse(localStorage.getItem('beacons'));
+
+			for (var i = 0; i < beacons.length; i++) {
+				if(beacons[i]==macAddress){
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
