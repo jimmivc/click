@@ -4,8 +4,8 @@
 	// app.controller('buscarBeaconController',function(){
 	// 	console.log('nothingController');
 	// });
-
-	beaconsIdsList = ['E1:0D:88:DA:70:BA','F1:A5:A6:CF:98:BC'];
+	// 'F1:A5:A6:CF:98:BC'
+	beaconsIdsList = ['E1:0D:88:DA:70:BA'];
 
 	app.startRangingBeacons = function()
 	{
@@ -132,6 +132,8 @@
 
 		beaconInList = false;
 
+		$('#beacon-media').append('<p>nativemac'+macAddress+'mymac'+beaconsIdsList[0]+'</p>');
+
 		//find in list...
 		for (var i = 0; i < beaconsIdsList.length; i++) {
 			if(beaconsIdsList[i]==macAddress){
@@ -139,6 +141,8 @@
 			}
 		}
 
+		$('#beacon-media').append('<p>'+beaconInList'</p>');
+		
 		//avoid calling method more than one time
 		if (beaconInList) {
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
@@ -148,7 +152,11 @@
 					return true;
 				}
 			}
+		}else{
+			//no pasa nada wey
+			return true;
 		}
+
 		return false;
 	}
 	
