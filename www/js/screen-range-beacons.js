@@ -95,20 +95,19 @@
 
 			// aumentar el contador en el api aqui
 
-			// $.ajax
-		 //    ({
-		 //        type: "POST",
-		 //        //the url where you want to sent the userName and password to
-		 //        url: 'username:password@link to the server/update',
-		 //        dataType: 'json',
-		 //        async: false,
-		 //        //json object to sent to the authentication url
-		 //        data: '{"userName": "' + userName + '", "password" : "' + password + '"}',
-		 //        success: function () {
-
-		 //        alert("Thanks!"); 
-		 //        }
-		 //    })
+			$.ajax
+		    ({
+		        type: "POST",
+		        //the url where you want to sent the userName and password to
+		        url: 'http://koko-test.com/click/back-end/index.php/app/saveEvent',
+		        dataType: 'application/json',
+		        async: false,
+		        //json object to sent to the authentication url
+		        data: JSON.stringify({"id_channel":"null","channel_name":"null","event_name":"null","id_rule":"null","rule_name":"null","id_object":"null"}),
+		        success: function () {
+		        	$('#beacon-media').append('<p>went better than expected</p>');
+		        }
+		    });
 
 			var beacons = JSON.parse(localStorage.getItem('beacons'));
 			beacons.push(beacon.macAddress);
