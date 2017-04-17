@@ -80,13 +80,7 @@
 
 		if(!findByMacAddress(beacon.macAddress)){
 
-
-			//test
-			$.get( "http://koko-test.com/click/back-end/index.php/app/test", function( data ) {
-				$('#beacon-media').append('<p>'+data+'</p>');
-			});			
-
-		 	$.post( "http://koko-test.com/click/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:beacon.macAddress})
+		 	$.post( "http://clicker.tech/back-end/index.php/app/saveEvent", {id_channel:"null",channel_name:"null",event_name:"null",id_rule:"null",rule_name:"null",id_object:beacon.macAddress})
 			  .done(function( data ) {
 			    $('#beacon-media').append('<p>datos registrados</p>');
 			});
